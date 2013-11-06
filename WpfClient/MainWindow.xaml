@@ -35,14 +35,20 @@
         <DockPanel >
         	<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top" >
         		<StackPanel Orientation="Horizontal">
-        			<TextBlock TextWrapping="Wrap" Text="Server IP" VerticalAlignment="Center" MinWidth="50" />
+        			<TextBlock TextWrapping="Wrap" Text="Server IP" VerticalAlignment="Center" MinWidth="80" />
         			<TextBox x:Name="serverIP" Height="23" TextWrapping="Wrap" Text="127.0.0.1" MinWidth="100" />
         		</StackPanel>
         		<StackPanel Orientation="Horizontal">
-        			<TextBlock TextWrapping="Wrap" Text="Port" VerticalAlignment="Center" MinWidth="50" />
+        			<TextBlock TextWrapping="Wrap" Text="Port" VerticalAlignment="Center" MinWidth="80" />
         			<TextBox x:Name="serverPort" Height="23" TextWrapping="Wrap" Text="4502" MinWidth="100" />
         		</StackPanel>
-        		<Button x:Name="connect" Content="Connect" Height="23" Click="connect_Click"/>
+        		<StackPanel Orientation="Horizontal" >
+        			<TextBlock TextWrapping="Wrap" Text="Hexadecimal" VerticalAlignment="Center" MinWidth="80" />
+        			<TextBox Width="50"/>
+        			<TextBox Width="50"/>
+        			<TextBox Width="50"/>
+        			<Button x:Name="sendHexadecimal" Content="Send" Height="23" Click="sendHexadecimal_Click" MinWidth="80"/>
+        		</StackPanel>
         	</StackPanel>
         	<ListBox ItemsSource="{Binding IncomingMessages}" 
         		ItemTemplate="{StaticResource LogTemplate}" AlternationCount="2" wpfClient:ListBoxExt.AutoScroll="True" />

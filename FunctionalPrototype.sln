@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfClient", "WpfClient\WpfC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfServer", "WpfServer\WpfServer.csproj", "{16131EE7-2734-4574-924C-F0A48047D392}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexConverter", "HexConverter\HexConverter.csproj", "{BCF9AE28-EC6D-4A65-ADC2-2E3077E52ED5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{16131EE7-2734-4574-924C-F0A48047D392}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16131EE7-2734-4574-924C-F0A48047D392}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16131EE7-2734-4574-924C-F0A48047D392}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCF9AE28-EC6D-4A65-ADC2-2E3077E52ED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCF9AE28-EC6D-4A65-ADC2-2E3077E52ED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCF9AE28-EC6D-4A65-ADC2-2E3077E52ED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCF9AE28-EC6D-4A65-ADC2-2E3077E52ED5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -58,19 +58,6 @@ namespace WpfClient
 			private set { _messages = value; }
 		}
 
-		private void connect_Click(object sender, System.Windows.RoutedEventArgs e)
-		{
-			IPAddress ipAddress;
-			int port;
-
-			//TODO Check if ip address is valid
-			ipAddress = IPAddress.Parse(serverIP.Text);
-			//TODO port range is 0-65000
-			port = int.Parse(serverPort.Text);
-
-			StartClient(ipAddress, port);
-		}
-
 		private static async Task StartClient(IPAddress serverIpAddress, int port)
 		{
 			using (var client = new TcpClient())
@@ -137,6 +124,21 @@ namespace WpfClient
 			Buffer.BlockCopy(first, 0, ret, 0, first.Length);
 			Buffer.BlockCopy(second, 0, ret, first.Length, secondLength);
 			return ret;
+		}
+
+		private void sendHexadecimal_Click(object sender, RoutedEventArgs e)
+		{
+			IPAddress ipAddress;
+			int port;
+
+			//TODO Check if ip address is valid
+			ipAddress = IPAddress.Parse(serverIP.Text);
+			//TODO port range is 0-65000
+			port = int.Parse(serverPort.Text);
+			//TODO get message to send
+			//Convert message to hexadecimal
+
+			StartClient(ipAddress, port);
 		}
 
 	}
