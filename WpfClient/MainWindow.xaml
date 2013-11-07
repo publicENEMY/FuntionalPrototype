@@ -1,7 +1,7 @@
 ﻿<Window x:Class="WpfClient.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:wpfClient="clr-namespace:WpfClient"
+        xmlns:local="clr-namespace:WpfClient"
         Title="WpfClient" Height="350" Width="525">
     <Window.Resources>
         <Style TargetType="{x:Type ListBoxItem}">
@@ -57,8 +57,8 @@
                     <Button x:Name="send" Content="Send" Height="23" MinWidth="80" Click="send_Click"/>
                 </StackPanel>
             </StackPanel>
-        	<ListBox ItemsSource="{Binding IncomingMessages}" 
-        		ItemTemplate="{StaticResource LogTemplate}" AlternationCount="2" wpfClient:ListBoxExt.AutoScroll="True" />
+            <ListBox ItemsSource="{Binding IncomingMessages}" 
+    			ItemTemplate="{StaticResource LogTemplate}" AlternationCount="2" local:ListBoxExt.AutoScroll="True" Height="Auto" Width="Auto" DockPanel.Dock="Bottom" MinWidth="100" MinHeight="100"/>
         </DockPanel>
     </Grid>
 </Window>
