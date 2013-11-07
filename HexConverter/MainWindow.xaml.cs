@@ -25,38 +25,35 @@ namespace HexConverter
 			InitializeComponent();
 		}
 
-		private void convertFromInt_Click(object sender, RoutedEventArgs e)
+		private void convertFromHex_Click(object sender, RoutedEventArgs e)
 		{
-
+			byte[] byteArray = StringToByteArray(hex1.Text + hex2.Text + hex3.Text);
+			if (byteArray == null)
+			{
+				int1.Text = int2.Text = int3.Text = "null";
+			}
+			else
+			{
+				int1.Text = byteArray[0].ToString();
+				int2.Text = byteArray[1].ToString();
+				int3.Text = byteArray[2].ToString();
+			}
 		}
 
-		private static string ConvertHexByteToHexString(string hexByte)
+		public static byte[] StringToByteArray(String hex)
 		{
-			string s = null;
-			return s;
-		}
-
-		private static string ConvertHexStringToHexByte(string hexString)
-		{
-			string s = null;
-			return s;
-		}
-
-		private static int ConvertHexStringToInt(string hex)
-		{
-			return Convert.ToInt32(hex, 16);
-		}
-	
-		private static string ConvertIntToHexString(int intValue)
-		{
-			string s = null;
-			return s;
-		}
-
-		private static byte[] ConvertIntToByteArray(int intValue)
-		{
-			byte[] byteArray = new byte[3];
-			return byteArray;
+			int NumberChars = hex.Length;
+			byte[] bytes = new byte[NumberChars / 2];
+			try
+			{
+				for (int i = 0; i < NumberChars; i += 2)
+					bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
+			}
+			catch (Exception e)
+			{
+				bytes = null;
+			}
+			return bytes;
 		}
 	}
 }

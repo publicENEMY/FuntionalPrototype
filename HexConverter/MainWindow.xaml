@@ -6,24 +6,17 @@
     	<StackPanel>
     		<StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
     			<TextBlock Text="Hex String" VerticalAlignment="Center" MinWidth="80" />
-    			<TextBox x:Name="hex1" Width="50"/>
-    			<TextBox x:Name="hex2" Width="50"/>
-    			<TextBox x:Name="hex3" Width="50"/>
-    			<Button x:Name="convertFromHex" Content="Convert" Height="23" MinWidth="80"/>
+    			<TextBox x:Name="hex1" Width="50" Text="01"/>
+    			<TextBox x:Name="hex2" Width="50" Text="0B"/>
+    			<TextBox x:Name="hex3" Width="50" Text="11"/>
+    			<Button x:Name="convertFromHex" Content="Convert" Height="23" MinWidth="80" Click="convertFromHex_Click"/>
     		</StackPanel>
-    		<StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" >
-    			<TextBlock Text="Hex Byte" VerticalAlignment="Center" MinWidth="80" />
-    			<TextBox x:Name="byte1" Width="50"/>
-    			<TextBox x:Name="byte2" Width="50"/>
-    			<TextBox x:Name="byte3" Width="50"/>
-    			<Button x:Name="convertFromByte" Content="Convert" Height="23" MinWidth="80"/>
-    		</StackPanel>
-    		<StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" >
     			<TextBlock Text="Integer" VerticalAlignment="Center" MinWidth="80" />
     			<TextBox x:Name="int1" Width="50"/>
     			<TextBox x:Name="int2" Width="50"/>
     			<TextBox x:Name="int3" Width="50"/>
-    			<Button x:Name="convertFromInt" Content="Convert" Height="23" MinWidth="80" Click="convertFromInt_Click"/>
+    			<Button x:Name="Send" Content="Send" Height="23" MinWidth="80"/>
     		</StackPanel>
     	</StackPanel>
         
