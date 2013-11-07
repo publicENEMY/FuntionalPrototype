@@ -128,7 +128,8 @@ namespace WpfServer
 							}
 							while (networkStream.DataAvailable);
 
-							Logger.Info("Received : " + Encoding.ASCII.GetString(accumBuffer));
+							//Logger.Info("Received : " + Encoding.ASCII.GetString(accumBuffer));
+							Logger.Info("Received : " + BitConverter.ToString(accumBuffer));
 						}
 						else
 						{
@@ -138,7 +139,8 @@ namespace WpfServer
 						if (networkStream.CanWrite)
 						{
 							await networkStream.WriteAsync(accumBuffer, 0, accumBuffer.Length, ct);
-							Logger.Info("Sent : " + Encoding.ASCII.GetString(accumBuffer));
+							//Logger.Info("Sent : " + Encoding.ASCII.GetString(accumBuffer));
+							Logger.Info("Sent : " + BitConverter.ToString(accumBuffer));
 						}
 						else
 						{

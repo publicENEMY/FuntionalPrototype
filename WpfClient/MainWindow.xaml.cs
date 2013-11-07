@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -58,7 +59,7 @@ namespace WpfClient
 			private set { _messages = value; }
 		}
 
-		private static async Task StartClient(IPAddress serverIpAddress, int port)
+		private static async Task StartClient(IPAddress serverIpAddress, int port, byte[] message)
 		{
 			using (var client = new TcpClient())
 			{
@@ -68,13 +69,12 @@ namespace WpfClient
 					Logger.Info("Connected to server");
 					using (var networkStream = client.GetStream())
 					{
-						string message = DateTime.Now.ToLongDateString();
-
 						if (networkStream.CanWrite)
 						{
-							var writeBuffer = Encoding.ASCII.GetBytes(message);
-							await networkStream.WriteAsync(writeBuffer, 0, writeBuffer.Length);
-							Logger.Info("Sent : " + Encoding.ASCII.GetString(writeBuffer));
+							//var writeBuffer = Encoding.ASCII.GetBytes(message);
+							await networkStream.WriteAsync(message, 0, message.Length);
+							//Logger.Info("Sent : " + Encoding.ASCII.GetString(message));
+							Logger.Info("Sent : " + BitConverter.ToString(message));
 						}
 						else
 						{
@@ -95,7 +95,8 @@ namespace WpfClient
 							}
 							while (networkStream.DataAvailable);
 
-							Logger.Info("Received : " + Encoding.ASCII.GetString(accumBuffer));
+							//Logger.Info("Received : " + Encoding.ASCII.GetString(accumBuffer));
+							Logger.Info("Received : " + BitConverter.ToString(accumBuffer));
 						}
 						else
 						{
@@ -126,19 +127,62 @@ namespace WpfClient
 			return ret;
 		}
 
-		private void sendHexadecimal_Click(object sender, RoutedEventArgs e)
+		private void send_Click(object sender, RoutedEventArgs e)
 		{
-			IPAddress ipAddress;
-			int port;
+			//check if values are valid
+			if ((int1.Text == "") || (int2.Text == "") || (int3.Text == ""))
+			{
+				Logger.Info("Invalid message to send");
+			}
+			else
+			{
+				IPAddress ipAddress;
+				int port;
 
-			//TODO Check if ip address is valid
-			ipAddress = IPAddress.Parse(serverIP.Text);
-			//TODO port range is 0-65000
-			port = int.Parse(serverPort.Text);
-			//TODO get message to send
-			//Convert message to hexadecimal
+				//TODO Check if ip address is valid
+				ipAddress = IPAddress.Parse(serverIP.Text);
+				//TODO port range is 0-65000
+				port = int.Parse(serverPort.Text);
+				//TODO get message to send
+				//Convert message to hexadecimal
 
-			StartClient(ipAddress, port);
+				byte[] bytes = new byte[3];
+				bytes[0] = Convert.ToByte(int1.Text);
+				bytes[1] = Convert.ToByte(int2.Text);
+				bytes[2] = Convert.ToByte(int3.Text);
+				StartClient(ipAddress, port, bytes);
+			}
+		}
+
+		private void convertFromHex_Click(object sender, RoutedEventArgs e)
+		{
+			byte[] byteArray = StringToByteArray(hex1.Text + hex2.Text + hex3.Text);
+			if (byteArray == null)
+			{
+				int1.Text = int2.Text = int3.Text = "";
+			}
+			else
+			{
+				int1.Text = byteArray[0].ToString();
+				int2.Text = byteArray[1].ToString();
+				int3.Text = byteArray[2].ToString();
+			}
+		}
+
+		public static byte[] StringToByteArray(String hex)
+		{
+			int NumberChars = hex.Length;
+			byte[] bytes = new byte[NumberChars / 2];
+			try
+			{
+				for (int i = 0; i < NumberChars; i += 2)
+					bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
+			}
+			catch (Exception e)
+			{
+				bytes = null;
+			}
+			return bytes;
 		}
 
 	}
