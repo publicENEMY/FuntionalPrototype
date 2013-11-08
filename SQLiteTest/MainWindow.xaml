@@ -35,10 +35,9 @@
         <DockPanel HorizontalAlignment="Stretch" LastChildFill="True" VerticalAlignment="Stretch">
         	<StackPanel DockPanel.Dock="Top">
         		<Button x:Name="createDb" Content="Create database" Padding="24,0,24,1" HorizontalAlignment="Center" Click="createDb_Click"/>
-        		<Button x:Name="connectDb" Content="Connect to database" Padding="24,0,24,1" HorizontalAlignment="Center" Click="connectDb_Click"/>
-        		<Button x:Name="createTb" Content="Create table" Padding="24,0,24,1" HorizontalAlignment="Center" Click="createTb_Click"/>
-        		<Button x:Name="fillTb" Content="Fill table" Padding="24,0,24,1" HorizontalAlignment="Center"/>
-        		<Button x:Name="queryDb" Content="Query database" Padding="24,0,24,1" HorizontalAlignment="Center"/>
+                <Button x:Name="createTb" Content="Create table" Padding="24,0,24,1" HorizontalAlignment="Center" Click="createTb_Click"/>
+        		<Button x:Name="fillTb" Content="Fill table" Padding="24,0,24,1" HorizontalAlignment="Center" Click="fillTb_Click"/>
+        		<Button x:Name="queryDb" Content="Query database" Padding="24,0,24,1" HorizontalAlignment="Center" Click="queryDb_Click"/>
         		<Button x:Name="printDb" Content="Print database" Padding="24,0,24,1" HorizontalAlignment="Center"/>
         	</StackPanel>
         	<ListBox ItemsSource="{Binding IncomingMessages}" 
