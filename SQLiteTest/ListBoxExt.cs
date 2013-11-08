@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Data;
 
-namespace NLogSample
+namespace SQLiteTest
 {
     public static class ListBoxExt  
     {  

@@ -1,9 +1,8 @@
-﻿<Window x:Class="NLogSample.MainWindow"
+﻿<Window x:Class="SQLiteTest.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:NLogSample" Title="NLog Target" 
-        Height="350" 
-        Width="700">
-    
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:SQLiteTest"
+        Title="MainWindow" Height="350" Width="525">
     <Window.Resources>
         <Style TargetType="{x:Type ListBoxItem}">
             <Style.Triggers>
@@ -31,7 +30,7 @@
             </Grid>
         </DataTemplate>
     </Window.Resources>
-    
+
     <Grid>
         <ListBox Grid.Row="1" ItemsSource="{Binding IncomingMessages}" 
                      ItemTemplate="{StaticResource LogTemplate}" AlternationCount="2" local:ListBoxExt.AutoScroll="True"/>

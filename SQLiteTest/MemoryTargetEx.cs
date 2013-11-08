@@ -3,7 +3,7 @@ using System.Reactive.Subjects;
 using NLog;
 using NLog.Targets;
 
-namespace NLogSample
+namespace SQLiteTest
 {
     [Target("MemoryTargetEx")] 
     class MemoryTargetEx : TargetWithLayout
