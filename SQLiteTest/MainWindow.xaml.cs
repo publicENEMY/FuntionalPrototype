@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NLog;
+using SQLite;
 
 namespace SQLiteTest
 {
@@ -45,7 +48,6 @@ namespace SQLiteTest
 			IncomingMessages = _messages;
 			Logger.Info("Window is loaded");
 			Logger.Info("These messages are logged in ..\\..\\Logs\\NLogSamples.log as well.");
-			Logger.Info("I will log when I am resized");
 		}
 
 		public ObservableCollection<string> IncomingMessages
@@ -53,5 +55,40 @@ namespace SQLiteTest
 			get { return _messages; }
 			private set { _messages = value; }
 		}
+
+		private SQLiteConnection _db;
+
+		private void createDb_Click(object sender, System.Windows.RoutedEventArgs e)
+		{
+			Logger.Info("Creating database");
+			var dbPath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "Stocks.db");
+			if (File.Exists(dbPath))
+				Logger.Info("File " + dbPath + " already exists");
+			try
+			{
+				_db = new SQLiteConnection(dbPath);
+			}
+			catch (System.Exception ex)
+			{
+				Logger.Error(ex.Message);
+			}
+			if (File.Exists(dbPath))
+				Logger.Info("File " + dbPath + " exists");
+			else
+				Logger.Info("File " + dbPath + " doesnt exists");
+		}
+
+		private void connectDb_Click(object sender, RoutedEventArgs e)
+		{
+		}
+
+		private void createTb_Click(object sender, RoutedEventArgs e)
+		{
+			// list available table
+			// create table
+			// check table exist
+			// 
+		}
+
 	}
 }

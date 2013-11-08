@@ -32,7 +32,17 @@
     </Window.Resources>
 
     <Grid>
-        <ListBox Grid.Row="1" ItemsSource="{Binding IncomingMessages}" 
-                     ItemTemplate="{StaticResource LogTemplate}" AlternationCount="2" local:ListBoxExt.AutoScroll="True"/>
+        <DockPanel HorizontalAlignment="Stretch" LastChildFill="True" VerticalAlignment="Stretch">
+        	<StackPanel DockPanel.Dock="Top">
+        		<Button x:Name="createDb" Content="Create database" Padding="24,0,24,1" HorizontalAlignment="Center" Click="createDb_Click"/>
+        		<Button x:Name="connectDb" Content="Connect to database" Padding="24,0,24,1" HorizontalAlignment="Center" Click="connectDb_Click"/>
+        		<Button x:Name="createTb" Content="Create table" Padding="24,0,24,1" HorizontalAlignment="Center" Click="createTb_Click"/>
+        		<Button x:Name="fillTb" Content="Fill table" Padding="24,0,24,1" HorizontalAlignment="Center"/>
+        		<Button x:Name="queryDb" Content="Query database" Padding="24,0,24,1" HorizontalAlignment="Center"/>
+        		<Button x:Name="printDb" Content="Print database" Padding="24,0,24,1" HorizontalAlignment="Center"/>
+        	</StackPanel>
+        	<ListBox ItemsSource="{Binding IncomingMessages}" 
+        		ItemTemplate="{StaticResource LogTemplate}" AlternationCount="2" local:ListBoxExt.AutoScroll="True" Height="Auto" Width="Auto" DockPanel.Dock="Bottom"/>
+        </DockPanel>
     </Grid>
 </Window>
