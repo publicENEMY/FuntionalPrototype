@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlClient", "SlClient\SlClie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlClient.Web", "SlClient.Web\SlClient.Web.csproj", "{369DAC7D-5114-40EB-8941-62716318F713}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressBarAsync", "ProgressBarAsync\ProgressBarAsync.csproj", "{7213BFD8-230D-449E-896D-31307661E111}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,16 @@ Global
 		{369DAC7D-5114-40EB-8941-62716318F713}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{369DAC7D-5114-40EB-8941-62716318F713}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{369DAC7D-5114-40EB-8941-62716318F713}.Release|x86.ActiveCfg = Release|Any CPU
+		{7213BFD8-230D-449E-896D-31307661E111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7213BFD8-230D-449E-896D-31307661E111}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7213BFD8-230D-449E-896D-31307661E111}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7213BFD8-230D-449E-896D-31307661E111}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7213BFD8-230D-449E-896D-31307661E111}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7213BFD8-230D-449E-896D-31307661E111}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7213BFD8-230D-449E-896D-31307661E111}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7213BFD8-230D-449E-896D-31307661E111}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7213BFD8-230D-449E-896D-31307661E111}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7213BFD8-230D-449E-896D-31307661E111}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
