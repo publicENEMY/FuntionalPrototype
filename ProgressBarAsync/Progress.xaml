@@ -4,7 +4,7 @@
         Title="Progress" Height="300" Width="300">
     <Grid>
         <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="207,25,0,0"/>
-        <ProgressBar x:Name="connectionProgress" HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="272" Margin="10,10,0,0"/>
+        <ProgressBar x:Name="connectionProgress" HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="272" Margin="10,10,0,0" Value="50"/>
 
     </Grid>
 </Window>
